@@ -20,6 +20,9 @@
 		C1D336A824F9B2A400574F19 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336A724F9B2A400574F19 /* HomeViewModel.swift */; };
 		C1D336AA24F9B2E300574F19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336A924F9B2E300574F19 /* HomeView.swift */; };
 		C1D336AC24F9B5AC00574F19 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336AB24F9B5AC00574F19 /* UIColor+.swift */; };
+		C1D336AF24FAB95400574F19 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */; };
+		C1D336B124FAB9B100574F19 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B024FAB9B100574F19 /* UIView+.swift */; };
+		C1D336B324FABFD500574F19 /* ConstantString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B224FABFD500574F19 /* ConstantString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		C1D336A724F9B2A400574F19 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C1D336A924F9B2E300574F19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C1D336AB24F9B5AC00574F19 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		C1D336B024FAB9B100574F19 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C1D336B224FABFD500574F19 /* ConstantString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D3369A24F9B18A00574F19 /* ApiMethod.swift */,
+				C1D336B224FABFD500574F19 /* ConstantString.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -122,6 +129,7 @@
 				C1D336A024F9B21F00574F19 /* UIFonts+.swift */,
 				C1D336A224F9B24500574F19 /* UIViewController+.swift */,
 				C1D336AB24F9B5AC00574F19 /* UIColor+.swift */,
+				C1D336B024FAB9B100574F19 /* UIView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -129,11 +137,20 @@
 		C1D336A424F9B27600574F19 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C1D336AD24FAB93600574F19 /* Row */,
 				C1D336A524F9B28A00574F19 /* HomeViewController.swift */,
 				C1D336A724F9B2A400574F19 /* HomeViewModel.swift */,
 				C1D336A924F9B2E300574F19 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C1D336AD24FAB93600574F19 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */,
+			);
+			path = Row;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D336AF24FAB95400574F19 /* ContactTableViewCell.swift in Sources */,
 				C1D336A324F9B24500574F19 /* UIViewController+.swift in Sources */,
 				C1D336A824F9B2A400574F19 /* HomeViewModel.swift in Sources */,
 				C1D3369524F9B11700574F19 /* Contacts.swift in Sources */,
@@ -213,8 +231,10 @@
 				C1D336AC24F9B5AC00574F19 /* UIColor+.swift in Sources */,
 				C1D3369B24F9B18A00574F19 /* ApiMethod.swift in Sources */,
 				C1D336A624F9B28A00574F19 /* HomeViewController.swift in Sources */,
+				C1D336B324FABFD500574F19 /* ConstantString.swift in Sources */,
 				C1D336A124F9B21F00574F19 /* UIFonts+.swift in Sources */,
 				C1D3369824F9B15600574F19 /* ModelProtocol.swift in Sources */,
+				C1D336B124FAB9B100574F19 /* UIView+.swift in Sources */,
 				C1D3369E24F9B1E800574F19 /* HelperContacts.swift in Sources */,
 				C1D3368024F9B03E00574F19 /* AppDelegate.swift in Sources */,
 			);

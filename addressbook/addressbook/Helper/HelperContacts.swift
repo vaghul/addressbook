@@ -21,7 +21,10 @@ class HelperContacts {
     let store = CNContactStore()
     lazy var containerId = self.store.defaultContainerIdentifier()
     lazy var predicate = CNContact.predicateForContactsInContainer(withIdentifier: containerId)
-    let keysToFetch = [CNContactEmailAddressesKey as CNKeyDescriptor]
+    let keysToFetch = [CNContactGivenNameKey,
+    CNContactPhoneNumbersKey,
+    CNContactEmailAddressesKey,
+    CNContactThumbnailImageDataKey,CNContactImageDataAvailableKey] as [CNKeyDescriptor]
 
     func getContactPermission(completion: @escaping (Bool)->()) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: .contacts)
@@ -48,6 +51,7 @@ class HelperContacts {
             do {
                 let contacts = try self.store.unifiedContacts(matching: self.predicate, keysToFetch: self.keysToFetch)
                 for item in contacts {
+                    print(item)
                     var contactCopy = Contacts(name: item.givenName, email: self.getContactEmail(of: item.emailAddresses), phone: self.getContactPhone(of: item.phoneNumbers))
                     if item.imageDataAvailable {
                         contactCopy.image = item.thumbnailImageData
@@ -88,7 +92,7 @@ class HelperContacts {
     }
     
     
-    func getContactEmail(of emailObject:[CNLabeledValue<NSString>] ) -> [String]? {
+   private func getContactEmail(of emailObject:[CNLabeledValue<NSString>] ) -> [String]? {
         var email:[String] = []
         for item in emailObject {
             email.append(item.value as String)
@@ -96,7 +100,7 @@ class HelperContacts {
         return (email.count == 0) ? nil : email
     }
     
-    func getContactPhone(of phoneObject:[CNLabeledValue<CNPhoneNumber>] ) -> [String]? {
+    private func getContactPhone(of phoneObject:[CNLabeledValue<CNPhoneNumber>] ) -> [String]? {
           var phone:[String] = []
           for item in phoneObject {
             phone.append(item.value.stringValue)

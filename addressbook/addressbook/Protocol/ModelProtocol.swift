@@ -12,6 +12,6 @@ import Foundation
 protocol ModelDelegate: class {
     
     func recievedResponce(refparam: ApiMethod)
-    func errorResponce(_ value: String, refparam: ApiMethod)
+    func errorResponce(refparam: ApiMethod)
 
 }

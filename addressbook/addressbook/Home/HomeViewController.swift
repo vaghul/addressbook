@@ -9,22 +9,24 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     var viewComponent: HomeView? { return self.view as? HomeView }
     var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
         self.view = HomeView(frame: self.view.frame)
-
+        
         viewModel.delegate = self
         
         viewComponent?.viewTable.rowHeight = 60
         viewComponent?.viewTable.delegate = self
         viewComponent?.viewTable.dataSource = self
+        viewComponent?.barSearch.delegate = self
+        viewComponent?.viewTable.separatorStyle = .none
         viewComponent?.viewTable.register(ContactTableViewCell.self, forCellReuseIdentifier: ConstantString.shared.CONTACTCELL)
         
         
@@ -43,19 +45,11 @@ class HomeViewController: UIViewController {
 extension HomeViewController : ModelDelegate {
     
     func errorResponce(refparam: ApiMethod) {
-        if refparam == .ContactsList {
-            self.showAlert(message: "No Contact Available")
-        }else if refparam == .ContactsSearch {
-            self.showAlert(message: "No Contact Available")
-        }
+        self.showAlert(message: "Contact Fetch Failed")
     }
     
     func recievedResponce(refparam: ApiMethod) {
-        if refparam == .ContactsList {
-            viewComponent?.viewTable.reloadData()
-        }else if refparam == .ContactsSearch {
-            viewComponent?.viewTable.reloadData()
-        }
+        viewComponent?.viewTable.reloadData()
     }
 }
 
@@ -75,5 +69,33 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (viewModel.getNumberOfRows() == 0) ? 60 : 0
+    }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: viewComponent?.frame.width ?? 0, height: 60))
+        let label = UILabel(frame: CGRect(x: 0, y: 15, width: viewComponent?.frame.width ?? 0, height: 30))
+        label.textColor = .secondaryLabel
+        label.textAlignment = .center
+        label.font = .semiboldTitle
+        label.text = "No Results Found"
+        view.addSubview(label)
+        
+        return view
+    }
+    
+}
+
+
+extension HomeViewController:UISearchBarDelegate {
+   
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {// called when text changes (including clear)
+        viewModel.populateFilteredContact(keyword: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        searchBar.resignFirstResponder()
+    }
 }

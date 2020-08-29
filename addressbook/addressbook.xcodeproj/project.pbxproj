@@ -23,6 +23,8 @@
 		C1D336AF24FAB95400574F19 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */; };
 		C1D336B124FAB9B100574F19 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B024FAB9B100574F19 /* UIView+.swift */; };
 		C1D336B324FABFD500574F19 /* ConstantString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B224FABFD500574F19 /* ConstantString.swift */; };
+		C1D336B824FAE10300574F19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B724FAE10300574F19 /* DetailViewController.swift */; };
+		C1D336BA24FAE13A00574F19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B924FAE13A00574F19 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		C1D336B024FAB9B100574F19 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C1D336B224FABFD500574F19 /* ConstantString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantString.swift; sourceTree = "<group>"; };
+		C1D336B724FAE10300574F19 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C1D336B924FAE13A00574F19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		C1D3367E24F9B03E00574F19 /* addressbook */ = {
 			isa = PBXGroup;
 			children = (
+				C1D336B624FAE0E300574F19 /* Detail */,
 				C1D336A424F9B27600574F19 /* Home */,
 				C1D3369F24F9B20F00574F19 /* Extensions */,
 				C1D3369C24F9B1D600574F19 /* Helper */,
@@ -151,6 +156,15 @@
 				C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */,
 			);
 			path = Row;
+			sourceTree = "<group>";
+		};
+		C1D336B624FAE0E300574F19 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C1D336B724FAE10300574F19 /* DetailViewController.swift */,
+				C1D336B924FAE13A00574F19 /* DetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +246,11 @@
 				C1D3369B24F9B18A00574F19 /* ApiMethod.swift in Sources */,
 				C1D336A624F9B28A00574F19 /* HomeViewController.swift in Sources */,
 				C1D336B324FABFD500574F19 /* ConstantString.swift in Sources */,
+				C1D336BA24FAE13A00574F19 /* DetailView.swift in Sources */,
 				C1D336A124F9B21F00574F19 /* UIFonts+.swift in Sources */,
 				C1D3369824F9B15600574F19 /* ModelProtocol.swift in Sources */,
 				C1D336B124FAB9B100574F19 /* UIView+.swift in Sources */,
+				C1D336B824FAE10300574F19 /* DetailViewController.swift in Sources */,
 				C1D3369E24F9B1E800574F19 /* HelperContacts.swift in Sources */,
 				C1D3368024F9B03E00574F19 /* AppDelegate.swift in Sources */,
 			);

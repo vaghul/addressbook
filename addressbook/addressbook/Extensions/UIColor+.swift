@@ -11,6 +11,10 @@ import UIKit
 
 extension UIColor {
     
+    class var seperatorColor: UIColor {
+        return UIColor(named: "seperatorColor")!
+    }
+    
     @nonobjc class var paleGrey: UIColor {
         return UIColor(white: 245.0 / 255.0, alpha: 1.0)
     }

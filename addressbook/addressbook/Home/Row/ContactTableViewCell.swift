@@ -24,6 +24,13 @@ class ContactTableViewCell: UITableViewCell {
         return temp
     }()
     
+    var lineSeperator:UIView = {
+          let temp = UIView()
+           temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.backgroundColor = .seperatorColor
+           return temp
+       }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
           super.init(style: style, reuseIdentifier: reuseIdentifier)
           setupLayout()
@@ -52,6 +59,13 @@ class ContactTableViewCell: UITableViewCell {
         labelContactName.leadingAnchor.constraint(equalTo: viewContactImage.trailingAnchor, constant: 8).isActive = true
         labelContactName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
         labelContactName.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        contentView.addSubview(lineSeperator)
+        
+        lineSeperator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        lineSeperator.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        lineSeperator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        lineSeperator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive  = true
         
       }
     

@@ -10,5 +10,9 @@ import Foundation
 
 struct Contacts {
 
+    var name:String?
+    var email:[String]?
+    var phone:[String]?
+    var image:Data?
 
 }

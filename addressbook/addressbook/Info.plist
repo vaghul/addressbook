@@ -41,5 +41,7 @@
 	</array>
 	<key>NSContactsUsageDescription</key>
 	<string>AddressBook will use your contacts to organize and display them</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

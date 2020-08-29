@@ -21,7 +21,7 @@ class UserDetailsHeader: UITableViewHeaderFooterView {
     let labelContactName:UILabel = {
         let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.font = .semiboldTitle
+        temp.font = .boldTitle
         temp.textColor = .label
         temp.textAlignment = .center
         return temp
@@ -55,9 +55,8 @@ class UserDetailsHeader: UITableViewHeaderFooterView {
         contentView.addSubview(labelContactName)
         
         labelContactName.topAnchor.constraint(equalTo: viewContactImage.bottomAnchor, constant: 20).isActive = true
-        //labelContactName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        labelContactName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        labelContactName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        labelContactName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        labelContactName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
         labelContactName.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         

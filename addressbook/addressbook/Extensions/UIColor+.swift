@@ -15,6 +15,10 @@ extension UIColor {
         return UIColor(named: "seperatorColor")!
     }
     
+    class var appBackgroundColor: UIColor {
+        return UIColor(named: "BackgroundColor")!
+    }
+    
     @nonobjc class var paleGrey: UIColor {
         return UIColor(white: 245.0 / 255.0, alpha: 1.0)
     }

@@ -16,17 +16,19 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
         self.view = HomeView(frame: self.view.frame)
         
         viewModel.delegate = self
         
         viewComponent?.viewTable.rowHeight = 60
+        viewComponent?.viewTable.estimatedRowHeight = 60
         viewComponent?.viewTable.delegate = self
         viewComponent?.viewTable.dataSource = self
         viewComponent?.barSearch.delegate = self
         viewComponent?.viewTable.separatorStyle = .none
+        
+        viewComponent?.viewTable.register(ViewTableHeader.self, forHeaderFooterViewReuseIdentifier: ConstantString.shared.TABLEHEADER)
         viewComponent?.viewTable.register(ContactTableViewCell.self, forCellReuseIdentifier: ConstantString.shared.CONTACTCELL)
         
         
@@ -37,6 +39,12 @@ class HomeViewController: UIViewController {
                 self.showAlert(message: "Contact Permission Not Available")
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+
     }
     
     
@@ -75,15 +83,19 @@ extension HomeViewController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: viewComponent?.frame.width ?? 0, height: 60))
-        let label = UILabel(frame: CGRect(x: 0, y: 15, width: viewComponent?.frame.width ?? 0, height: 30))
-        label.textColor = .secondaryLabel
-        label.textAlignment = .center
-        label.font = .semiboldTitle
-        label.text = "No Results Found"
-        view.addSubview(label)
-        
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ConstantString.shared.TABLEHEADER) as? ViewTableHeader else {return nil}
+        view.setHeader(title: "No Results Found")
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contact = viewModel.getContact(for: indexPath)
+        let detailVc = DetailViewController()
+        detailVc.viewModel.setContact(contact: contact)
+        //let nav = UINavigationController(rootViewController: detailVc)
+        //nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(detailVc, animated: true)
+        //present(nav, animated: true, completion: nil)
     }
     
 }

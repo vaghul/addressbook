@@ -13,6 +13,8 @@ class ConstantString {
     
     static let shared = ConstantString()
     
+    let DETAILHEADERID = "DETAILHEADERID"
+    let TABLEHEADER = "TABLEHEADERID"
     let CONTACTCELL = "CONTACTTABLEVIEWCELLID"
     
     

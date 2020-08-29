@@ -25,6 +25,10 @@
 		C1D336B324FABFD500574F19 /* ConstantString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B224FABFD500574F19 /* ConstantString.swift */; };
 		C1D336B824FAE10300574F19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B724FAE10300574F19 /* DetailViewController.swift */; };
 		C1D336BA24FAE13A00574F19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336B924FAE13A00574F19 /* DetailView.swift */; };
+		C1D336BD24FAE9A600574F19 /* UserDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336BC24FAE9A600574F19 /* UserDetailsHeader.swift */; };
+		C1D336BF24FAED9F00574F19 /* DetailInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336BE24FAED9F00574F19 /* DetailInfoTableViewCell.swift */; };
+		C1D336C124FAEF0E00574F19 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336C024FAEF0E00574F19 /* DetailViewModel.swift */; };
+		C1D336C324FAFEE400574F19 /* ViewTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D336C224FAFEE400574F19 /* ViewTableHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		C1D336B224FABFD500574F19 /* ConstantString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantString.swift; sourceTree = "<group>"; };
 		C1D336B724FAE10300574F19 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C1D336B924FAE13A00574F19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C1D336BC24FAE9A600574F19 /* UserDetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsHeader.swift; sourceTree = "<group>"; };
+		C1D336BE24FAED9F00574F19 /* DetailInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoTableViewCell.swift; sourceTree = "<group>"; };
+		C1D336C024FAEF0E00574F19 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		C1D336C224FAFEE400574F19 /* ViewTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTableHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D336AE24FAB95400574F19 /* ContactTableViewCell.swift */,
+				C1D336C224FAFEE400574F19 /* ViewTableHeader.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -161,10 +170,21 @@
 		C1D336B624FAE0E300574F19 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				C1D336BB24FAE97600574F19 /* Row */,
 				C1D336B724FAE10300574F19 /* DetailViewController.swift */,
 				C1D336B924FAE13A00574F19 /* DetailView.swift */,
+				C1D336C024FAEF0E00574F19 /* DetailViewModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		C1D336BB24FAE97600574F19 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				C1D336BC24FAE9A600574F19 /* UserDetailsHeader.swift */,
+				C1D336BE24FAED9F00574F19 /* DetailInfoTableViewCell.swift */,
+			);
+			path = Row;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +264,12 @@
 				C1D336AA24F9B2E300574F19 /* HomeView.swift in Sources */,
 				C1D336AC24F9B5AC00574F19 /* UIColor+.swift in Sources */,
 				C1D3369B24F9B18A00574F19 /* ApiMethod.swift in Sources */,
+				C1D336C124FAEF0E00574F19 /* DetailViewModel.swift in Sources */,
+				C1D336BD24FAE9A600574F19 /* UserDetailsHeader.swift in Sources */,
 				C1D336A624F9B28A00574F19 /* HomeViewController.swift in Sources */,
 				C1D336B324FABFD500574F19 /* ConstantString.swift in Sources */,
+				C1D336BF24FAED9F00574F19 /* DetailInfoTableViewCell.swift in Sources */,
+				C1D336C324FAFEE400574F19 /* ViewTableHeader.swift in Sources */,
 				C1D336BA24FAE13A00574F19 /* DetailView.swift in Sources */,
 				C1D336A124F9B21F00574F19 /* UIFonts+.swift in Sources */,
 				C1D3369824F9B15600574F19 /* ModelProtocol.swift in Sources */,

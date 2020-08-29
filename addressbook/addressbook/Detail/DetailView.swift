@@ -9,13 +9,36 @@
 import UIKit
 
 class DetailView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    let viewTable:UITableView = {
+       let temp = UITableView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.keyboardDismissMode = .onDrag
+        return temp
+    }()
+    
+   
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .appBackgroundColor
+        layoutSetup()
+        
     }
-    */
-
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func layoutSetup() {
+        
+     
+        
+        addSubview(viewTable)
+        
+        viewTable.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor).isActive = true
+        viewTable.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        viewTable.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        viewTable.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
+        
+        
+    }
 }

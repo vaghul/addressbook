@@ -10,39 +10,40 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
     
-    let viewContactImage:UIImageView = {
-       let temp = UIImageView()
-       temp.translatesAutoresizingMaskIntoConstraints = false
+    private let viewContactImage:UIImageView = {
+        let temp = UIImageView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.contentMode = .scaleAspectFill
         return temp
     }()
-
-    let labelContactName:UILabel = {
-       let temp = UILabel()
+    
+    private let labelContactName:UILabel = {
+        let temp = UILabel()
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.font = .semiboldTitle
         temp.textColor = .label
         return temp
     }()
     
-    var lineSeperator:UIView = {
-          let temp = UIView()
-           temp.translatesAutoresizingMaskIntoConstraints = false
+    private let lineSeperator:UIView = {
+        let temp = UIView()
+        temp.translatesAutoresizingMaskIntoConstraints = false
         temp.backgroundColor = .seperatorColor
-           return temp
-       }()
+        return temp
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-          super.init(style: style, reuseIdentifier: reuseIdentifier)
-          setupLayout()
-          
-      }
-      
-      required init?(coder: NSCoder) {
-          fatalError("init(coder:) has not been implemented")
-      }
-      
-      func setupLayout() {
-              
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupLayout()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupLayout() {
+        
         contentView.addSubview(viewContactImage)
         
         viewContactImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
@@ -67,7 +68,7 @@ class ContactTableViewCell: UITableViewCell {
         lineSeperator.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineSeperator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive  = true
         
-      }
+    }
     
     func setContact(value:Contacts) {
         viewContactImage.image = UIImage(named: "avatar")

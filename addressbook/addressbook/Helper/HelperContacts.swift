@@ -22,6 +22,8 @@ class HelperContacts {
     lazy var containerId = self.store.defaultContainerIdentifier()
     lazy var predicate = CNContact.predicateForContactsInContainer(withIdentifier: containerId)
     let keysToFetch = [CNContactGivenNameKey,
+                    CNContactMiddleNameKey,
+                    CNContactFamilyNameKey,
     CNContactPhoneNumbersKey,
     CNContactEmailAddressesKey,
     CNContactThumbnailImageDataKey,CNContactImageDataAvailableKey] as [CNKeyDescriptor]
@@ -51,8 +53,8 @@ class HelperContacts {
             do {
                 let contacts = try self.store.unifiedContacts(matching: self.predicate, keysToFetch: self.keysToFetch)
                 for item in contacts {
-                    print(item)
-                    var contactCopy = Contacts(name: item.givenName, email: self.getContactEmail(of: item.emailAddresses), phone: self.getContactPhone(of: item.phoneNumbers))
+                    print()
+                    var contactCopy = Contacts(name: self.getContactName(of: item), email: self.getContactEmail(of: item.emailAddresses), phone: self.getContactPhone(of: item.phoneNumbers))
                     if item.imageDataAvailable {
                         contactCopy.image = item.thumbnailImageData
                     }
@@ -67,30 +69,36 @@ class HelperContacts {
         }
     }
     
-    func retrieveContact(name:String, completion: @escaping ([Contacts]?)->()) {
-        var arraycontacts:[Contacts] = []
-
-        DispatchQueue.global().async {
-            do {
-                let predicate = CNContact.predicateForContacts(matchingName: name)
-                let contacts = try self.store.unifiedContacts(matching: predicate, keysToFetch: self.keysToFetch)
-                for item in contacts {
-                    var contactCopy = Contacts(name: item.givenName, email: self.getContactEmail(of: item.emailAddresses), phone: self.getContactPhone(of: item.phoneNumbers))
-                    if item.imageDataAvailable {
-                        contactCopy.image = item.thumbnailImageData
-                    }
-                    arraycontacts.append(contactCopy)
-                }
-                completion(arraycontacts)
-            } catch {
-                print("Failed to fetch contact, error: \(error)")
-                completion(nil)
-                // Handle the error
-            }
-        }
+    
+//    func retrieveContact(name:String, completion: @escaping ([Contacts]?)->()) {
+//        var arraycontacts:[Contacts] = []
+//
+//        DispatchQueue.global().async {
+//            do {
+//                let predicate = CNContact.predicateForContacts(matchingName: name)
+//                let contacts = try self.store.unifiedContacts(matching: predicate, keysToFetch: self.keysToFetch)
+//                for item in contacts {
+//                    var contactCopy = Contacts(name: item.givenName, email: self.getContactEmail(of: item.emailAddresses), phone: self.getContactPhone(of: item.phoneNumbers))
+//                    if item.imageDataAvailable {
+//                        contactCopy.image = item.thumbnailImageData
+//                    }
+//                    arraycontacts.append(contactCopy)
+//                }
+//                completion(arraycontacts)
+//            } catch {
+//                print("Failed to fetch contact, error: \(error)")
+//                completion(nil)
+//                // Handle the error
+//            }
+//        }
+//        
+//    }
+    
+    private func getContactName(of contact:CNContact) -> String {
         
+        return "\(contact.givenName) \(contact.middleName) \(contact.familyName)"
     }
-    
+
     
    private func getContactEmail(of emailObject:[CNLabeledValue<NSString>] ) -> [String]? {
         var email:[String] = []
